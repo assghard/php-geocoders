@@ -1,0 +1,30 @@
+{
+    "name": "assghard/php-geocoders",
+    "description": "Geocoders library for PHP project",
+    "keywords": [
+        "assghard",
+        "php",
+        "geocoders",
+        "library",
+        "nominatim"
+    ],
+    "homepage": "https://github.com/assghard/php-geocoders",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Assghard\\PhpGeocoders\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [{
+        "name": "assghard",
+        "role": "Developer"
+    }],
+    "require": {
+        "php": ">=8.0",
+        "php-curl": "*"
+    }
+}
