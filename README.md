@@ -1,5 +1,7 @@
 # assghard php-geocoders - The geocoders library for PHP project
 
+Simple PHP library which provides geocoding and reverse geocoding features using different providers such as Nominatim (OpenStreetMap), Google, etc. Get address by coordinates and get coordinates by address
+
  ## Requirements
 - PHP >= 8.0
 - PHP cURL
