@@ -7,7 +7,15 @@ Simple PHP library which provides geocoding and reverse geocoding features using
 - PHP cURL
 
 ## Installation
+Install latest release (for PHP 8+): 
+
 `composer require assghard/php-geocoders`
+
+### For older versions of PHP
+
+If you use PHP 7+:
+
+`composer require assghard/php-geocoders:dev-php7`
 
 ## Usage
 
