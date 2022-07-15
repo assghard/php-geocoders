@@ -22,7 +22,7 @@ class GeocodingService {
      * @param float $longitude
      * @return array|boolean
      */
-    public function reverse(float $latitude, float $longitude): array|bool
+    public function reverse(float $latitude, float $longitude)
     {
         return $this->geocoder->reverseGeocoding($latitude, $longitude);
     }
@@ -33,7 +33,7 @@ class GeocodingService {
      * @param string $address
      * @return array|boolean
      */
-    public function geocode(string $address): array|bool
+    public function geocode(string $address)
     {
         return $this->geocoder->geocoding($address);
     }

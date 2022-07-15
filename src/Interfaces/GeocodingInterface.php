@@ -11,7 +11,7 @@ interface GeocodingInterface {
      *
      * @param string $address
      */
-    public function geocoding(string $address): array|bool;
+    public function geocoding(string $address);
 
     /**
      * Get address by coordinates
@@ -19,6 +19,6 @@ interface GeocodingInterface {
      * @param $latitude
      * @param $longitude
      */
-    public function reverseGeocoding(float $latitude, float $longitude): array|bool;
+    public function reverseGeocoding(float $latitude, float $longitude);
 
 }

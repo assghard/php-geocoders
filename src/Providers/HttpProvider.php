@@ -6,11 +6,23 @@ namespace Assghard\PhpGeocoders\Providers;
 
 class HttpProvider {
 
-	public function __construct(private string $geocoderUrl, private array $config = [])
+    /**
+     * @var string
+     */
+    private $geocoderUrl;
+
+    /**
+     * @var array
+     */
+    private $config;
+
+	public function __construct($geocoderUrl, $config = [])
 	{
+        $this->geocoderUrl = $geocoderUrl;
+        $this->config = $config;
 	}
 
-    public function getRequest(string $uri = '', array $params = []): array|bool
+    public function getRequest(string $uri = '', array $params = [])
     {
         $requestUrl = $this->geocoderUrl;
         if (!empty($uri)) {

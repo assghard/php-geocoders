@@ -10,15 +10,24 @@ use Assghard\PhpGeocoders\Providers\HttpProvider;
 class NominatimGeocoderProvider implements GeocodingInterface {
 
     /**
+     * @var string|array
+     */
+    private $countryCodes;
+
+    /**
+     * @var string
+     */
+    private $geocoderUrl;
+
+    /**
      * @var HttpProvider
      */
     private $httpProvider;
 
-	public function __construct(
-        private string|array $countryCodes = [],
-        private string $geocoderUrl = 'https://nominatim.openstreetmap.org'
-    ) {
-        $this->httpProvider = new HttpProvider($this->geocoderUrl);
+	public function __construct($countryCodes = [], $geocoderUrl = 'https://nominatim.openstreetmap.org') {
+        $this->countryCodes = $countryCodes;
+        $this->geocoderUrl = $geocoderUrl;
+        $this->httpProvider = new HttpProvider($geocoderUrl);
     }
 
     /**
@@ -28,7 +37,7 @@ class NominatimGeocoderProvider implements GeocodingInterface {
      * @param $longitude
      * @return array|bool Array of results or false
      */
-    public function reverseGeocoding(float $latitude, float $longitude): array|bool
+    public function reverseGeocoding(float $latitude, float $longitude)
     {
         return $this->httpProvider->getRequest('reverse.php', $this->prepareRequestParams([
             'lat' => $latitude,
@@ -43,7 +52,7 @@ class NominatimGeocoderProvider implements GeocodingInterface {
      * @param string $address Address string
      * @return array|bool Array of results or false
      */
-    public function geocoding(string $address): array|bool
+    public function geocoding(string $address)
     {
         return $this->httpProvider->getRequest('search.php', $this->prepareRequestParams(['q' => $address]));
     }
