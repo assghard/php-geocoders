@@ -3,7 +3,7 @@
 Simple PHP library which provides geocoding and reverse geocoding features using different providers such as Nominatim (OpenStreetMap), Google, etc. Get address by coordinates and get coordinates by address
 
  ## Requirements
-- PHP >= 8.0
+- PHP >= 5.6
 - PHP cURL
 
 ## Installation
