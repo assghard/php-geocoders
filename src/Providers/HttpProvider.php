@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Assghard\PhpGeocoders\Providers;
 
 class HttpProvider {
@@ -22,7 +20,7 @@ class HttpProvider {
         $this->config = $config;
 	}
 
-    public function getRequest(string $uri = '', array $params = [])
+    public function getRequest($uri = '', $params = [])
     {
         $requestUrl = $this->geocoderUrl;
         if (!empty($uri)) {

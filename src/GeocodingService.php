@@ -1,16 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Assghard\PhpGeocoders;
-
-use Assghard\PhpGeocoders\Interfaces\GeocodingInterface;
 
 class GeocodingService {
 
     private $geocoder;
 
-	public function __construct(GeocodingInterface $geocoder)
+	public function __construct($geocoder)
 	{
         $this->geocoder = $geocoder;
 	}
@@ -22,7 +18,7 @@ class GeocodingService {
      * @param float $longitude
      * @return array|boolean
      */
-    public function reverse(float $latitude, float $longitude)
+    public function reverse($latitude, $longitude)
     {
         return $this->geocoder->reverseGeocoding($latitude, $longitude);
     }
@@ -33,7 +29,7 @@ class GeocodingService {
      * @param string $address
      * @return array|boolean
      */
-    public function geocode(string $address)
+    public function geocode($address)
     {
         return $this->geocoder->geocoding($address);
     }
