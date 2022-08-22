@@ -13,9 +13,9 @@ Install latest release (for PHP 8+):
 
 ### For older versions of PHP
 
-If you use PHP 7+:
+If you use PHP 7+: `composer require assghard/php-geocoders:dev-php7`
 
-`composer require assghard/php-geocoders:dev-php7`
+If you use PHP 5.6: `composer require assghard/php-geocoders:dev-php56`
 
 ## Usage
 
