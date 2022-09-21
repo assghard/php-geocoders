@@ -49,6 +49,26 @@ Multiple country codes:
 $geocoder = new NominatimGeocoderProvider(['en', 'pl']);
 ```
 
+### Google geocoder
+
+```php
+use Assghard\PhpGeocoders\GeocodingService;
+use Assghard\PhpGeocoders\Providers\GoogleGeocoderProvider;
+```
+...
+
+```php
+$geocoder = new GoogleGeocoderProvider('GOOGLE_MAPS_API_KEY', 'en');
+/**
+ * "en" - English language code. See Google documentation: https://developers.google.com/admin-sdk/directory/v1/languages
+ * 
+ * Google Maps javascript API documentation: https://developers.google.com/maps/documentation/javascript/overview
+ */
+$geocodingService = new GeocodingService($geocoder);
+$geocodeData = $geocodingService->geocode($addressAsString); // Get coordinates by address
+$reverseData = $geocodingService->reverse($latitude, $longitude); // Get address by coordinates
+
+```
 
 ## License
 
