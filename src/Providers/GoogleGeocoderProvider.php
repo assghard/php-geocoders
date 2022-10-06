@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Google Maps javascript API documentation: https://developers.google.com/maps/documentation/javascript/overview
+ */
+
 declare(strict_types=1);
 
 namespace Assghard\PhpGeocoders\Providers;
@@ -13,6 +17,10 @@ class GoogleGeocoderProvider implements GeocodingInterface
 
     private $params;
 
+    /**
+     * @param string $googleMapsKey - Google Maps API key
+     * @param string $language - Language code. See Google documentation: https://developers.google.com/admin-sdk/directory/v1/languages
+     */
     public function __construct(
         private string $googleMapsKey, // Geocoding feature should be enabled in Google panel
         private string $language = 'en',
