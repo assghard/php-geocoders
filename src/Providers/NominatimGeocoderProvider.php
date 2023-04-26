@@ -16,6 +16,7 @@ class NominatimGeocoderProvider implements GeocodingInterface {
 
 	public function __construct(
         private string|array $countryCodes = [],
+        private array $params = ['format' => 'jsonv2', 'addressdetails' => true],
         private string $geocoderUrl = 'https://nominatim.openstreetmap.org'
     ) {
         $this->httpProvider = new HttpProvider($this->geocoderUrl);
@@ -50,16 +51,15 @@ class NominatimGeocoderProvider implements GeocodingInterface {
 
     private function prepareRequestParams(array $params): array
     {
-        $defaultParams = ['format' => 'jsonv2', 'addressdetails' => true];
         if (!empty($this->countryCodes)) {
             if (is_array($this->countryCodes)) {
-                $defaultParams['countrycodes'] = implode(',', $this->countryCodes);
+                $this->params['countrycodes'] = implode(',', $this->countryCodes);
             } else {
-                $defaultParams['countrycodes'] = $this->countryCodes;
+                $this->params['countrycodes'] = $this->countryCodes;
             }
         }
 
-        return array_merge($defaultParams, $params);
+        return array_merge($this->params, $params);
     }
     
 }
